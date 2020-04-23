@@ -1,0 +1,270 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{article}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[T2A]{fontenc} % enable Cyrillic fonts
+\usepackage[utf8]{inputenc} % make weird characters work
+\usepackage{graphicx}
+
+\usepackage[english,serbian]{babel}
+%\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
+
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+
+\usepackage{listings}
+
+%\newtheorem{primer}{Пример}[section] %ćirilični primer
+\newtheorem{primer}{Primer}[section]
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ 
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  basicstyle=\scriptsize\ttfamily,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  firstnumber=1000,                % start line enumeration with line 1000
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Python,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\begin{document}
+
+\title{Naslov seminarskog rada\\ \small{Seminarski rad u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet}}
+
+\author{Prvi autor, drugi autor, treći autor, četvrti autor\\ kontakt email prvog, drugog, trećeg, četvrtog autora}
+
+%\date{9.~april 2015.}
+
+\maketitle
+
+\abstract{
+U ovom tekstu je ukratko prikazana osnovna forma seminarskog rada. Obratite pažnju da je pored ove .pdf datoteke, u prilogu i odgovarajuća .tex datoteka, kao i .bib datoteka korišćena za generisanje literature. Na prvoj strani seminarskog rada su naslov, apstrakt i sadržaj, i to sve mora da stane na prvu stranu! Kako bi Vaš seminarski zadovoljio standarde i očekivanja, koristite uputstva i materijale sa predavanja na temu pisanja seminarskih radova. Ovo je samo šablon koji se odnosi na fizički izgled seminarskog rada (šablon koji \emph{morate} da koristite!) kao i par tehničkih pomoćnih uputstava. Pročitajte tekst pažljivo jer on sadrži i važne informacije vezane za zahteve obima i karakteristika seminarskog rada.}
+
+\tableofcontents
+
+\newpage
+
+\section{Heap Con PT}
+\label{sec:uvod}
+
+Kada budete predavali seminarski rad, imenujete datoteke tako da sadrže redni broj teme, temu seminarskog rada, kao i prezimena članova grupe. Precizna uputstva na temu imenovnja će biti data na formi za predaju seminarskog rada. Predaja seminarskih radova biće isključivo preko veb forme, a NE slanjem mejla. Link na formu će biti dat u okviru obaveštenja na strani kursa. Vodite računa da prilikom predavanja seminarskog rada predate samo one fajlove koji su neophodni za ponovno generisanje pdf datoteke. To znači da pomoćne fajlove, kao što su .log, .out, .blg, .toc, .aux i slično, \textbf{ne treba predavati}.
+
+\section{PyCon PT}
+Vaš seminarski rad mora da sadrži najmanje jednu \textbf{sliku}, najmanje jednu \textbf{tabelu} i najmanje \textbf{sedam referenci} u spisku literature. Najmanje jedna slika treba da bude originalna i da predstavlja neke podatke koje ste Vi osmislili da treba da prezentujete u svom radu. Isto važi i za najmanje jednu tabelu. 	Od referenci, neophodno je imati bar jednu \textbf{knjigu}, bar jedan \textbf{naučni članak} iz odgovarajućeg časopisa i bar jednu adekvatnu \textbf{veb adresu}. 
+
+\textbf{Dužina seminarskog rada treba da bude od 10 do 12 strana.} Svako prekoračenje ili potkoračenje biće kažnjeno sa odgovarajućim brojem poena. Eventualno, nakon strane 12, može se javiti samo tekst poglavlja \textbf{Dodatak} koji sadrži nekakav dodatni k\^{o}d, ali je svakako potrebno da rad može da se pročita i razume i bez čitanja tog dodatka. 
+
+Ко жели, може да пише рад ћирилицом. У том случају, неопходно је да су инсталирани одговарајући пакети: texlive-fonts-extra, texlive-latex-extra, texlive-lang-cyrillic, texlive-lang-other. 
+
+Nemojte koristiti stari način pisanja slova, tj ovo:
+\begin{verbatim}
+\v{s} i \v{c} i \'c ...
+\end{verbatim}
+Koristite direknto naša slova:	
+\begin{verbatim}
+š i č i ć ... 
+\end{verbatim}
+
+
+\section{Data science}
+\textbf{Data Science Conference} je prva otvorena konferencija posvećena nauci o podacima koja se organizuje u Srbiji. Konferencija je zamišljena kao mesto okupljanja Data Science profesionalaca, ali i svih onih koje zanima ova oblast ili tek počinju da se bave podacima. Šesta po redu konferencija odžaće se u Beogradu, 17. i 18. novembra.
+\subsection{Istorijat}
+ 
+Prva Data Science Conference je održana u Beogradu 13. i 14. oktobra 2015. godine i okupila je preko 250 učesnika koji su imali prilike da čuju više od 20 predavača i Data Science stručnjaka iz zemlje i regiona. Tokom dva dana, posetioci su imali prilike da čuju mnoštvo interesantnih predavanja iz oblasti analitike, big data, mašinskog učenja. Organizator Konferencije je \textit{Institut savremenih nauka}, neprofitno udruženje posvećeno edukaciji i promociji modernih tehnologija.
+
+\subsection{Program}
+Program konferencije oranizovan je po predavanjima iz odgovarajućih oblasti u trajanju od po 20 minuta, nakon čega sledi otvorena diskusija sa učesnicima.
+\newline
+\newline
+Paneli su podeljeni tematski u četiri oblasti, i to:
+\begin{enumerate}
+    \item \textbf{Technical}
+    \begin{itemize}
+        \item fokusirana na praktičnu implementaciju i upotrebu na poljima veštačke inteligencije i Data Science
+    \end{itemize}
+     \item \textbf{Bussines}
+    \begin{itemize}
+        \item uticaj Data Science na biznis logiku, planiranja i profit
+    \end{itemize}
+     \item \textbf{Resarch}
+    \begin{itemize}
+        \item osvrt na objavljenje naučne radove iz srodnih oblasti
+    \end{itemize}
+     \item \textbf{Educational}
+    \begin{itemize}
+        \item okrenuta edukativnim programima i ličnom iskustvu upotrebe Data Science and AI u okviru različitih oblasti
+    \end{itemize}
+\end{enumerate}
+
+Fokus samog događaja jeste na temama poput veštačke inteligencije, mašinskog učenja, istraživanja podataka, ali i inteligenciji odlučivanja kao i najboljim načinima za započinjanje karijere u okviru ovih oblasti.
+
+
+\section{eSecurity}
+\textbf{eSecurity Conference} jedan je od najznačajnijih IT događaja u regionu koji okuplja veliki broj stručnjaka iz oblasti informacione sigurnosti. Konferencija se održava svake godine, u organizaciji neprofitnog udruženja \textbf{eSigurnost} - formiranog 2016. godine, prateći najnovije trendove na polju IT bezbednosti. Održavanje ovogodišnje konferencije, četvrte po redu, planirano je za period od 11. do 13. maja u hotelu \textit{Mona Plaza} u Beogradu.
+\subsection{Istorijat}
+30. maja 2017. godine, u hotelu \textit{Crowne Plaza}, svečano je, uz podršku \textit{Ministarstva turizma, trgovine i telekomunikacija}, otvorena prva po redu eSecurity konferencija. \newline Od tada, ovaj događaj obuhvatio je više od 100 govornika, 50 predavanja, kao i preko 500 učesnika.
+Konferencija se održava pod naslovom \textbf{Hack or be hacked}.
+\subsection{Program}
+Program samog događaja podeljen je u nekoliko panela. Učesnicima je na raspolaganju specijalno dizajnirana igra \textbf{ack4life}, koja za cilj ima podsticanje na hakersko razmišljanje. Nakon samostalnog prelaska početnih nivoa, finalni deo igre biće praktično predstavljen na samoj konferenciji, pri čemu su za najuspešnije učesnike obezbeđene nagrade.
+\newline
+Neke od tema koje se nalaze u prvom planu jesu:
+\begin{itemize}
+    \item web hacking
+    \item sigurnost informacionih sistema
+    \item bezbednost mobilnih uređaja i aplikacija
+    \item problemi autentifikacije
+    \item napredne mogućnosti antivirus zaštite
+    \item sigurnost Linux sistema
+\end{itemize}
+Posebno se obrađuju i oblasti \textbf{eBanking} sigurnosti, uključujući online plaćanja i sigurnost platnih kartica. Deo predavanja posvećen je i pen-testovima, etičkom hakovanju i sistemima za oporavak podataka, te najnovijim i najčešće korišćenim tehnikama narušavanja informacionih sistema.
+\\
+Predavanja i paneli praćeni su kako teorijskim pristupom, tako i praktičnim primerima iz odgovarajućih oblasti koje se obrađuju.
+
+\section{Agile VN}
+Za ubacivanje koda koristite paket \textbf{listings}:
+\url{https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings}
+
+\begin{primer}
+Primer ubacivanja koda za programski jezik Python dat je kroz listing \ref{simple}. Za neki drugi programski jezik, treba podesiti odgvarajući programski jezik u okviru defnisanja stila.
+\end{primer}
+\begin{lstlisting}[caption={Primer ubacivanja koda u tekst},frame=single, label=simple]
+# This program adds up integers in the command line
+import sys
+try:
+    total = sum(int(arg) for arg in sys.argv[1:])
+    print 'sum =', total
+except ValueError:
+    print 'Please supply integer arguments'
+\end{lstlisting}
+
+
+\section{PhpSerbia LS}
+\label{sec:naslov1}
+
+
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+
+
+\subsection{Prvi podnaslov}
+\label{subsec:podnaslov1}
+
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+
+\subsection{Drugi podnaslov}
+\label{subsec:podnaslov2}
+
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+
+
+\subsection{... podnaslov}
+\label{subsec:podnaslovN}
+
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+
+\section{Microsoft conference LS}
+\label{sec:naslovN}
+
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+
+\subsection{... podnaslov}
+\label{subsec:podnaslovK}
+
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+
+\subsection{... podnaslov}
+\label{subsec:podnaslovM}
+
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+Ovde pišem tekst. 
+
+
+\section{Zaključak}
+\label{sec:zakljucak}
+
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+Ovde pišem zaključak. 
+
+
+\addcontentsline{toc}{section}{Literatura}
+\appendix
+\bibliography{seminarski} 
+\bibliographystyle{plain}
+
+\appendix
+\section{Dodatak}
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+Ovde pišem dodatne stvari, ukoliko za time ima potrebe.
+
+
+\end{document}
